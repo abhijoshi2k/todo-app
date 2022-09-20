@@ -1,0 +1,11 @@
+.cursor-pointer {
+	cursor: pointer;
+}
+
+.trash-can:hover {
+	color: red;
+}
+
+.list-checkbox:checked + .list-checkbox-label label {
+	text-decoration: line-through;
+}

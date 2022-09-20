@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My List</title>
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+    crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+
+  <link rel="stylesheet" href="/style.css">
+  <script src="/script.js"></script>
+</head>
+
+<body>
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
+          class="d-inline-block align-text-top">
+        To-Do List
+      </a>
+      <a href="/all-items" class="btn btn-secondary float-end">Show All Items</a>
+    </div>
+  </nav>
+  <div class="container py-5">
+    <div class="row">
+      <div class="col-12">
+        <h4 class="text-center pb-3">Categories</h4>
+
+        <form id="category-form">
+          <div class="input-group mb-3">
+            <input type="text" class="form-control" placeholder="Add/Go to category" aria-label="Add/Go to category"
+              aria-describedby="button-addon2" name="category" id="category-inp" required>
+            <button class="btn btn-primary" type="submit" id="button-addon2">Go</button>
+          </div>
+        </form>
+        <script>
+          document.getElementById('category-form').addEventListener('submit', newCategory);
+        </script>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="/">Category</a>
+          </li>
+          <li class="list-group-item">
+            <a href="/">Category</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
