@@ -24,6 +24,8 @@ function handleDelete(id) {
 	}).then((response) => {
 		if (response.status === 200) {
 			document.getElementById(id).remove();
+		} else {
+			alert('Could not delete item');
 		}
 	});
 }
