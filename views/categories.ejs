@@ -22,46 +22,38 @@
 </head>
 
 <body>
-  <nav class="navbar bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
-          class="d-inline-block align-text-top">
-        To-Do List
-      </a>
-      <a href="/all-items" class="btn btn-secondary float-end">Show All Items</a>
-    </div>
-  </nav>
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="text-center pb-3">Categories</h4>
+  <%- include('./partials/navbar.ejs') %>
 
-        <form id="category-form">
-          <div class="input-group mb-3">
-            <input type="text" class="form-control" placeholder="Add/Go to category" aria-label="Add/Go to category"
-              aria-describedby="button-addon2" name="category" id="category-inp" required>
-            <button class="btn btn-primary" type="submit" id="button-addon2">Go</button>
-          </div>
-        </form>
-        <script>
-          document.getElementById('category-form').addEventListener('submit', newCategory);
-        </script>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="text-center pb-3">Categories</h4>
 
-        <ul class="list-group">
+          <form id="category-form">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" placeholder="Add/Go to category" aria-label="Add/Go to category"
+                aria-describedby="button-addon2" name="category" id="category-inp" required>
+              <button class="btn btn-primary" type="submit" id="button-addon2">Go</button>
+            </div>
+          </form>
+          <script>
+            document.getElementById('category-form').addEventListener('submit', newCategory);
+          </script>
 
-          <% categories.forEach(category=> { %>
-            <li class="list-group-item">
-              <a href="/category/<%= encodeURIComponent(category) %> ">
-                <%= category %>
-              </a>
-            </li>
-            <% }) %>
+          <ul class="list-group">
 
-        </ul>
+            <% categories.forEach(category=> { %>
+              <li class="list-group-item">
+                <a href="/category/<%= encodeURIComponent(category) %> ">
+                  <%= category %>
+                </a>
+              </li>
+              <% }) %>
+
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>

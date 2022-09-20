@@ -22,64 +22,57 @@
 </head>
 
 <body>
-  <nav class="navbar bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="/">
-        <img src="https://getbootstrap.com/docs/5.2/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
-          class="d-inline-block align-text-top">
-        To-Do List
-      </a>
-      <a href="/all-items" class="btn btn-secondary float-end">Show All Items</a>
-    </div>
-  </nav>
-  <div class="container py-5">
-    <div class="row">
-      <div class="col-12">
-        <h4 class="text-center pb-3">
-          <%= listName %>
-        </h4>
+  <%- include('./partials/navbar.ejs') %>
 
-        <% if(!allItems) { %>
-          <form action="/" method="post">
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Add a new item" aria-label="Add a new item"
-                aria-describedby="button-addon2" name="content" required>
-              <input type="hidden" name="category" value="<%= listName %>">
-              <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
-            </div>
-          </form>
-          <% } %>
+    <div class="container py-5">
+      <div class="row">
+        <div class="col-12">
+          <h4 class="text-center pb-3">
+            <%= listName %>
+          </h4>
 
-            <ul class="list-group">
+          <% if(!allItems) { %>
+            <form action="/" method="post">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Add a new item" aria-label="Add a new item"
+                  aria-describedby="button-addon2" name="content" required>
+                <input type="hidden" name="category" value="<%= listName %>">
+                <button class="btn btn-primary" type="submit" id="button-addon2">Add</button>
+              </div>
+            </form>
+            <% } %>
 
-              <% for (let i=0; i < items.length; i++) { %>
-                <li class="list-group-item" id="<%= items[i]._id %>">
-                  <div class="d-flex">
-                    <div class="flex-grow-1 d-flex">
-                      <input onchange="handleStrikethrough('<%= items[i]._id %>', this.checked)"
-                        class="form-check-input d-inline-block list-checkbox" type="checkbox" id="item<%= i %>"
-                        <%=items[i].strikethrough && 'checked' %> >
-                      <span class="ms-2 ps-1 list-checkbox-label flex-grow-1">
-                        <label for="item<%= i %>">
-                          <%= items[i].content %>
-                        </label>
-                        <% if(allItems) { %>
-                          <br>
-                          <small class="text-muted">Category: <%= items[i].category %></small>
-                          <% } %>
-                      </span>
+              <ul class="list-group">
+
+                <% for (let i=0; i < items.length; i++) { %>
+                  <li class="list-group-item" id="<%= items[i]._id %>">
+                    <div class="d-flex">
+                      <div class="flex-grow-1 d-flex">
+                        <input onchange="handleStrikethrough('<%= items[i]._id %>', this.checked)"
+                          class="form-check-input d-inline-block list-checkbox" type="checkbox" id="item<%= i %>"
+                          <%=items[i].strikethrough && 'checked' %> >
+                        <span class="ms-2 ps-1 list-checkbox-label flex-grow-1">
+                          <label for="item<%= i %>">
+                            <%= items[i].content %>
+                          </label>
+                          <% if(allItems) { %>
+                            <br>
+                            <small class="text-muted">Category: <%= items[i].category %></small>
+                            <% } %>
+                        </span>
+                      </div>
+                      <div class="flex-shrink-1 ps-2">
+                        <i class="bi bi-trash cursor-pointer trash-can"
+                          onclick="handleDelete('<%= items[i]._id %>')"></i>
+                      </div>
                     </div>
-                    <div class="flex-shrink-1 ps-2">
-                      <i class="bi bi-trash cursor-pointer trash-can" onclick="handleDelete('<%= items[i]._id %>')"></i>
-                    </div>
-                  </div>
-                </li>
-                <% } %>
+                  </li>
+                  <% } %>
 
-            </ul>
+              </ul>
+        </div>
       </div>
     </div>
-  </div>
 </body>
 
 </html>
